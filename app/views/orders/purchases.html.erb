@@ -1,0 +1,20 @@
+<div class="center">
+	<h2>Your purchases history</h2>
+</div>
+
+<table class="table table-striped table-bordered">
+	<tr>
+		<th class="center">Item</th>
+		<th class="center">Desc</th>
+		<th class="center">Seller</th>
+		<th class="center">Date Purchased</th>
+	</tr>
+	
+	<% @orders.each do |order| %>
+		<tr>
+			<td class="center"><%= order.listing.name %></td>
+			<td class="center"><%= number_to_currency(order.listing.price) %></td>
+			<td class="center"><%= order.seller.name %></td>
+			<td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
+	<% end %>
+</table>
